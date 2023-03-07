@@ -6,15 +6,22 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 
+
 function App(){
 
-    const [ user, setUser ] = useState([]);
-    const [ profile, setProfile ] = useState([]);
+const [user, setUser] = useState(() => {
+    // getting stored value
+    const saved = localStorage.getItem("user");
+    const initialValue = JSON.parse(saved);
+    return initialValue || "";
+  });
 
-    const login = useGoogleLogin({
-        onSuccess: (codeResponse) => setUser(codeResponse),
-        onError: (error) => console.log('Login Failed:', error)
-    });
+const [ profile, setProfile ] = useState([]);
+
+const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log('Login Failed:', error)
+});
 
     useEffect(
         () => {
@@ -36,12 +43,22 @@ function App(){
     );
 
     // log out function to log the user out of google and set the profile array to null
+
     const logOut = () => {
         googleLogout();
         setProfile(null);
     };
 
+    useEffect(() => {
+        localStorage.setItem('user', JSON.stringify(user));
+      }, [user]);
 
+      useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+         setUser(user);
+        }
+      }, []);
 
     return (
     <Router>
