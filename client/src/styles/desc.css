@@ -1,0 +1,11 @@
+.description{
+    padding: 3rem;
+    margin: 50px auto;
+    font-weight: 500;
+    font-style: normal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width:60%;
+    line-height: 1.5rem;
+    background: rgb(2,0,36);
+    background-image: linear-gradient(to right, #fffbd5, #fc5c7d);
+}

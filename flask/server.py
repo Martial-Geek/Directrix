@@ -11,7 +11,7 @@ def index():
 
 @app.route('/disease', methods=['GET','POST'])
 def index1():
-    response = jsonify(message="Sayan")
+    response = jsonify(message="Sayan", ms2="Sen")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return (response)
 
