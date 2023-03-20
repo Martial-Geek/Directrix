@@ -3,7 +3,7 @@ import "./styles/desc.css";
 
 export default function Description() {
   return (
-    <div class="description">
+    <div className="description">
       <h1>DESCRIPTION</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

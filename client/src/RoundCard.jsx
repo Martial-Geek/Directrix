@@ -4,7 +4,7 @@ import "./styles/card.css";
 
 export default function () {
   return (
-    <div class="card-body">
+    <div className="card-body">
       <ElectricBoltIcon />
       <h3>Prediction Disease</h3>
       <p>Helps to predict your disease</p>
