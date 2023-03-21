@@ -39,49 +39,107 @@ async function verifyGoogleToken(token) {
   }
 }
 
-// open database in memory
+let items = [];
+
+//Reading the database
+
+// const itemList = function handleParam() {
+//   // open database in memory
+//   let db = new sqlite3.Database(
+//     "C:/sqlite/db/doc_db.db",
+//     sqlite3.OPEN_READWRITE,
+//     (err) => {
+//       if (err) {
+//         return console.error(err.message);
+//       }
+//       console.log("Connected to the doctors SQlite database.");
+//     }
+//   );
+
+//   const items = [];
+
+//   db.serialize(() => {
+//     db.each(
+//       `SELECT ID as id,
+//         Doc_Name as name,
+//         Area as area
+//           FROM BookCopy
+//           WHERE id=1 `,
+//       (err, row) => {
+//         if (err) {
+//           console.error(err.message);
+//         }
+//         // console.log(row);
+//         // res.send(row);
+//         items.push(row);
+//         console.log(items);
+//       }
+//     );
+
+//   });
+
+//   // close the database connection
+//   db.close((err) => {
+//     if (err) {
+//       return console.error(err.message);
+//     }
+//     console.log("Close the database connection.");
+//   });
+// };
+
 let db = new sqlite3.Database(
-  "C:/sqlite/db/chinook.db",
+  "C:/sqlite/db/doc_db.db",
   sqlite3.OPEN_READWRITE,
   (err) => {
     if (err) {
       return console.error(err.message);
     }
-    console.log("Connected to the chinook SQlite database.");
+    console.log("Connected to the doctors SQlite database.");
   }
 );
 
-//Reading the database
-
-let items = [];
-
-db.serialize(() => {
-  db.each(
-    `SELECT PlaylistId as id,
-                    Name as name
-             FROM playlists`,
+app.get("/", (req, res) => {
+  const area = req.query.area;
+  console.log(area);
+  db.all(
+    `SELECT ID as id, Doc_Name as name, Area as area FROM BookCopy where area="${area}"`,
+    [],
     (err, row) => {
       if (err) {
-        console.error(err.message);
+        res.status(400).json({ error: err.message });
+        return;
       }
-      console.log(row);
-      // res.send(row);
-      items.push(row);
-      //   console.log(items);
+      res.status(200).json(row);
     }
   );
-});
 
-// close the database connection
-db.close((err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log("Close the database connection.");
-});
+  // db.serialize(() => {
+  //   db.each(
+  //     `SELECT ID as id,
+  //       Doc_Name as name,
+  //       Area as area
+  //         FROM BookCopy
+  //         WHERE id=1 `,
+  //     (err, row) => {
+  //       if (err) {
+  //         console.error(err.message);
+  //       }
+  //       // console.log(row);
+  //       // res.send(row);
+  //       items.push(row);
+  //       console.log(items);
+  //     }
+  //   );
+  // });
 
-app.get("/", (req, res) => {
-  res.send(items);
+  // close the database connection
+  // db.close((err) => {
+  //   if (err) {
+  //     return console.error(err.message);
+  //   }
+  //   // items = [];
+  //   console.log("Close the database connection.");
+  // });
 });
 
 // app.get('/test', (req,res)=>{
@@ -98,6 +156,8 @@ app.get("/home", function (req, res) {
     res.send(body); //Display the response on the website
   });
 });
+
+//signup process
 
 app.post("/signup", async (req, res) => {
   try {
@@ -136,6 +196,8 @@ app.post("/signup", async (req, res) => {
     });
   }
 });
+
+//login process
 
 app.post("/login", async (req, res) => {
   try {

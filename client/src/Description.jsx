@@ -4,8 +4,8 @@ import "./styles/desc.css";
 export default function Description() {
   return (
     <div className="description">
-      <h1>DESCRIPTION</h1>
-      <p>
+      <h1 className="heading">DESCRIPTION</h1>
+      <p className="desc">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ipsum consequat nisl
         vel pretium lectus quam. Vitae purus faucibus ornare suspendisse sed

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Description from "./Description";
 import RoundCard from "./RoundCard";
+import RotatingIcons from "./RotatingIcons";
 
 const Home = ({ user }) => {
   const logout = () => {
@@ -19,7 +20,8 @@ const Home = ({ user }) => {
       </p>
 
       <div>
-        <Description />
+        <RotatingIcons />
+        {/* <Description /> */}
         <div>
           <RoundCard />
           <RoundCard />

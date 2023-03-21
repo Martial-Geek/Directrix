@@ -1,11 +1,25 @@
 .description{
-    padding: 3rem;
-    margin: 50px auto;
-    font-weight: 500;
-    font-style: normal;
+    position: absolute;
+    right:4%;
+    top:20%;
+    /* float: right; */
+    padding-top: 3rem;
+    width:48%;
+    
+    /* background: rgb(2,0,36); */
+    /* background-image: linear-gradient(to right, #fffbd5, #fc5c7d); */
+}
+
+.heading{
+    font-size: 6rem;
+    font-weight: 800;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width:60%;
-    line-height: 1.5rem;
-    background: rgb(2,0,36);
-    background-image: linear-gradient(to right, #fffbd5, #fc5c7d);
+    margin-bottom: 5rem;
+}
+
+.desc{
+    font-size: large;
+    font-weight: 500;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.8rem;
 }

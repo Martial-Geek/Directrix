@@ -63,23 +63,52 @@
 // }
 // }
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 function DataComp() {
   const [state, setState] = useState({ items: [], DataisLoaded: false });
+  const [val, setVal] = useState("");
 
-  fetch("http://localhost:5000/")
-    .then((res) => res.json())
-    .then((json) => {
-      setState({ items: json, DataisLoaded: true });
-    });
+  function handleClick(e) {
+    e.preventDefault();
+    fetch(`http://localhost:5000?area=${val}`)
+      .then((res) => res.json())
+      .then((json) => {
+        setState({ items: json, DataisLoaded: true });
+      });
+  }
+
+  function handleChange(e) {
+    setVal(e.target.value);
+  }
+
+  // useEffect(() => {
+  //   fetch("http://localhost:5000?id=1")
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       setState({ items: json, DataisLoaded: true });
+  //     });
+  // }, []);
 
   return (
     <div className="App">
       <h1> Fetch data from an api in react</h1>{" "}
+      <div className="Form">
+        <form onSubmit={(event) => handleClick(event)}>
+          <input
+            type="text"
+            value={val}
+            onChange={(event) => handleChange(event)}
+          ></input>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
       {state.items.map((item) => (
-        <ol key={item.id}>Full_Name: {item.name},</ol>
+        <ol key={item.id}>
+          <li>Full_Name: {item.name}</li>
+          <li>Area:{item.area}</li>
+        </ol>
       ))}
     </div>
   );

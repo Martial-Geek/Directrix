@@ -138,7 +138,7 @@ function App() {
         <Route path="/ndata" element={profile && <DataComp />} />
         <Route path="/test" element={profile && <Test />} /> */}
         <Route path="/disease" element={<Dis />} />
-        <Route path="/ndata" element={<DataComp />} />
+        <Route path="/docrecm" element={<DataComp />} />
         <Route path="/test" element={<Test />} />
       </Routes>
     </Router>
