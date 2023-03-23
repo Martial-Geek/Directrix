@@ -13,7 +13,7 @@ html {
 .orbit {
   background: darken(#E2FCFC, 20%);
   border:solid rgb(182, 127, 127) 1.5px;
-  background:linear-gradient(305deg, rgb(182, 127, 127) 55%, white 45%);
+  background:linear-gradient(305deg, #8dcadc 55%, white 45%);
   margin-top: 5rem;
   margin-bottom:5rem;
   padding-bottom: 10rem;
@@ -128,7 +128,7 @@ ul[class^=ring] {
   height: 1.8em;
   line-height: 1.8em;
   text-align: center;
-  background: hotpink;
+  background: white;
   border-radius: 50%;
   
   &:hover .orbit-center__icon {

@@ -1,17 +1,17 @@
 import React from "react";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import MedicationIcon from "@mui/icons-material/Medication";
-import HtmlIcon from "@mui/icons-material/Html";
-import DataObjectIcon from "@mui/icons-material/DataObject";
-import CssIcon from "@mui/icons-material/Css";
-import JavascriptIcon from "@mui/icons-material/Javascript";
-import PhpIcon from "@mui/icons-material/Php";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
-import AdbIcon from "@mui/icons-material/Adb";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import AirlineSeatFlatIcon from "@mui/icons-material/AirlineSeatFlat";
-import AlignVerticalCenterIcon from "@mui/icons-material/AlignVerticalCenter";
-import AppsIcon from "@mui/icons-material/Apps";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
+import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
+import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+import SpaIcon from "@mui/icons-material/Spa";
+import HealingIcon from "@mui/icons-material/Healing";
+import MedicalInformationIcon from "@mui/icons-material/MedicalInformation";
+import VaccinesIcon from "@mui/icons-material/Vaccines";
+import MasksIcon from "@mui/icons-material/Masks";
+import BloodtypeIcon from "@mui/icons-material/Bloodtype";
+import MedicationLiquidIcon from "@mui/icons-material/MedicationLiquid";
+import FitbitIcon from "@mui/icons-material/Fitbit";
+import LocalPharmacyIcon from "@mui/icons-material/LocalPharmacy";
 import Description from "./Description";
 import "./styles/icons.scss";
 
@@ -21,22 +21,22 @@ export default function RotatingIcons() {
       <Description />
       <ul class="orbit-wrap">
         <li class="orbit-center">
-          <GitHubIcon class="orbit-center__icon" />
+          <LocalHospitalIcon class="orbit-center__icon" />
         </li>
 
         <li>
           <ul class="ring-0">
             <li>
-              <MedicationIcon class="orbit-icon" />
+              <MonitorHeartIcon class="orbit-icon" />
             </li>
             <li>
-              <HtmlIcon class="orbit-icon" />
+              <DirectionsRunIcon class="orbit-icon" />
             </li>
             <li>
-              <DataObjectIcon class="orbit-icon" />
+              <HealthAndSafetyIcon class="orbit-icon" />
             </li>
             <li>
-              <CssIcon class="orbit-icon" />
+              <SpaIcon class="orbit-icon" />
             </li>
           </ul>
         </li>
@@ -44,42 +44,42 @@ export default function RotatingIcons() {
         <li>
           <ul class="ring-1">
             <li>
-              <JavascriptIcon class="orbit-icon" />
+              <HealingIcon class="orbit-icon" />
             </li>
             <li>
-              <PhpIcon class="orbit-icon" />
+              <MedicalInformationIcon class="orbit-icon" />
             </li>
             <li>
-              <AcUnitIcon class="orbit-icon" />
+              <VaccinesIcon class="orbit-icon" />
             </li>
           </ul>
         </li>
         <li>
           <ul class="ring-2">
             <li>
-              <AdbIcon class="orbit-icon" />
+              <MasksIcon class="orbit-icon" />
             </li>
             <li>
-              <AddShoppingCartIcon class="orbit-icon" />
+              <BloodtypeIcon class="orbit-icon" />
             </li>
             <li>
-              <AirlineSeatFlatIcon class="orbit-icon" />
+              <MedicationLiquidIcon class="orbit-icon" />
             </li>
             <li>
-              <AlignVerticalCenterIcon class="orbit-icon" />
+              <FitbitIcon class="orbit-icon" />
             </li>
           </ul>
         </li>
         <li>
           <ul class="ring-3">
             <li>
-              <AppsIcon class="orbit-icon" />
+              <LocalPharmacyIcon class="orbit-icon" />
             </li>
             <li>
-              <MedicationIcon class="orbit-icon" />
+              <MonitorHeartIcon class="orbit-icon" />
             </li>
             <li>
-              <JavascriptIcon class="orbit-icon" />
+              <HealingIcon class="orbit-icon" />
             </li>
           </ul>
         </li>

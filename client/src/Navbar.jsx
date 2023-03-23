@@ -17,23 +17,21 @@ const Navbar = ({ user }) => {
     <>
       <Nav>
         <Bars />
+        <NavLink to="/docrecm" activeStyle>
+          Doctor's Recommendation
+        </NavLink>
+        <NavLink to="/disease" activeStyle>
+          Disease Prediction
+        </NavLink>
+        {/* Second Nav */}
+        {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
 
-        <NavMenu>
-          <NavLink to="/docrecm" activeStyle>
-            Doctor's Recommendation
-          </NavLink>
-          <NavLink to="/disease" activeStyle>
-            Disease Prediction
-          </NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
-        </NavMenu>
         <button
           onClick={logout}
           style={{
             color: "red",
-            border: "1px solid gray",
-            backgroundColor: "white",
+            border: "none",
+            backgroundColor: "transparent",
             padding: "0.5rem 1rem",
             cursor: "pointer",
           }}
