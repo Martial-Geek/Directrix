@@ -14,6 +14,7 @@ import FitbitIcon from "@mui/icons-material/Fitbit";
 import LocalPharmacyIcon from "@mui/icons-material/LocalPharmacy";
 import Description from "./Description";
 import "./styles/icons.scss";
+import robo from "./static/robo-centre.avif";
 
 export default function RotatingIcons() {
   return (
@@ -21,7 +22,12 @@ export default function RotatingIcons() {
       <Description />
       <ul class="orbit-wrap">
         <li class="orbit-center">
-          <LocalHospitalIcon class="orbit-center__icon" />
+          <img
+            style={{ width: "100px", height: "100px", borderRadius: "50%" }}
+            src={robo}
+            alt=""
+            class="orbit-center__icon"
+          />
         </li>
 
         <li>

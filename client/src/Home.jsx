@@ -3,6 +3,8 @@ import Navbar from "./Navbar";
 import Description from "./Description";
 import RoundCard from "./RoundCard";
 import RotatingIcons from "./RotatingIcons";
+import doc from "./static/doctor.avif";
+import Border from "./Border";
 
 const Home = ({ user }) => {
   const logout = () => {
@@ -21,19 +23,46 @@ const Home = ({ user }) => {
   return (
     <div style={{ textAlign: "center", margin: "0rem" }}>
       <Navbar />
-      <h1>
+      <h1
+        style={{
+          marginTop: "5rem",
+          fontFamily: "sans-serif",
+          fontFamily: "Verdana",
+          fontSize: "70px",
+          color: "#4398bf",
+        }}
+      >
         Good {greeting} {user.firstName}
       </h1>
 
-      <p>
-        You are viewing this page because you are logged in or you just signed
-        up
+      <p
+        style={{
+          marginTop: "2rem",
+          fontFamily: "sans-serif",
+          fontFamily: "Verdana",
+          fontSize: "25px",
+        }}
+      >
+        Stay Fit, Stay Healthy!
       </p>
+
+      <img
+        style={{
+          width: "400px",
+          height: "400px",
+          borderRadius: "50%",
+          margin: "3rem auto",
+        }}
+        src={doc}
+        alt="Doc-Img"
+      />
+
+      <Border />
 
       <div>
         <RotatingIcons />
-        {/* <Description /> */}
-        <div>
+        <Border />
+        <div style={{ margin: "5rem auto" }}>
           <RoundCard />
           <RoundCard />
           <RoundCard />
