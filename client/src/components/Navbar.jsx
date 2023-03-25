@@ -1,5 +1,6 @@
 import React from "react";
 import { Nav, Bars, NavBtn, NavBtnLink } from "./NavbarElements";
+import brandlogo from "../static/behealthylogo.png";
 
 const Navbar = ({ user }) => {
   const logout = () => {
@@ -10,6 +11,16 @@ const Navbar = ({ user }) => {
     <>
       <Nav>
         <Bars />
+        <img
+          src={brandlogo}
+          alt="Logo"
+          style={{
+            width: "55px",
+            height: "55px",
+            borderRadius: "50%",
+            margin: "6px ",
+          }}
+        />
         <NavBtn>
           <NavBtnLink to="/docrecm" activeStyle>
             Doctor's Recommendation

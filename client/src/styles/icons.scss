@@ -1,5 +1,5 @@
 $orbitItemSize: 1.8em;
-$map: (ring-0: 4, ring-1: 3, ring-2: 4, ring-3: 3);
+$map: (ring-0: 4, ring-1: 3, ring-2: 8, ring-3: 3);
 $lastRing: 3;
 
 * {
@@ -28,7 +28,7 @@ html {
   width: $orbitItemSize;
   height: $orbitItemSize;
   line-height: $orbitItemSize;
-  font-size: 1.2em;
+  font-size: 1.1em;
   border-radius: 50%;
   background: #ccc;
   color: #fff;
@@ -50,7 +50,7 @@ html {
     &:hover {
       ul {
         border-width: 2px;
-        border-color: #fff;
+        border-color: red;
       }
       ~ li ul {
         border-color: rgba(255, 255, 255, 0.2);
@@ -172,24 +172,24 @@ animations
 icons 
 */
 $icons : (
-  ('LocalHospitalIcon', #b71c1c, white),
-  ('coffee', #4CAF50, #CDDC39),
-  ('safari', white, darkslateblue),
-  ('firefox', #1565c0, #ff8f00),
-  ('chrome', #fbc02d, #ef6c00),
-  ('edge', #03a9f4, white),
-  ('android', snow, limegreen),
-  ('apple', #444, white),
-  ('linux', white, #222),
-  ('windows', white, #03a9f4),
-  ('terminal', #222, #fff),
-  ('html5', white, #e65100),
-  ('css3', white, #2196f3),
-  ('git', #222, white),
-  ('free-code-camp', green, white),
-  ('meetup', red, white),
-  ('podcast', red, white),
-  ('codepen', #333, white)
+  ('wheelchair', #b71c1c, white),
+  ('syringe', #4CAF50, #CDDC39),
+  ('tooth', white, darkslateblue),
+  ('virus-covid', #1565c0, #ff8f00),
+  ('thermometer', #fbc02d, #ef6c00),
+  ('brain', #03a9f4, white),
+  ('pills', snow, limegreen),
+  ('skull', #444, white),
+  ('laptop-medical', white, #222),
+  ('heart-pulse', white, #03a9f4),
+  ('capsules', #222, #fff),
+  ('bone', white, #e65100),
+  ('bacteria', white, #2196f3),
+  ('lungs', #222, white),
+  ('dna', green, white),
+  ('heart', red, white),
+  ('user-nurse', red, white),
+  ('user-doctor', #333, white)
 );
 
 @each $icon in $icons {

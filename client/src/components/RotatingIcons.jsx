@@ -13,8 +13,8 @@ import MedicationLiquidIcon from "@mui/icons-material/MedicationLiquid";
 import FitbitIcon from "@mui/icons-material/Fitbit";
 import LocalPharmacyIcon from "@mui/icons-material/LocalPharmacy";
 import Description from "./Description";
-import "./styles/icons.scss";
-import robo from "./static/robo-centre.avif";
+import "../styles/icons.scss";
+import robo from "../static/robo-centre.avif";
 
 export default function RotatingIcons() {
   return (
@@ -33,10 +33,10 @@ export default function RotatingIcons() {
         <li>
           <ul class="ring-0">
             <li>
-              <MonitorHeartIcon class="orbit-icon" />
+              <i class="orbit-icon fa-solid fa-user-doctor"></i>
             </li>
             <li>
-              <DirectionsRunIcon class="orbit-icon" />
+              <i class="orbit-icon fa-solid fa-wheelchair"></i>
             </li>
             <li>
               <HealthAndSafetyIcon class="orbit-icon" />

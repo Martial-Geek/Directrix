@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
-import Description from "./Description";
-import RoundCard from "./RoundCard";
-import RotatingIcons from "./RotatingIcons";
-import doc from "./static/doctor.avif";
-import Border from "./Border";
+import Navbar from "../components/Navbar";
+import RoundCard from "../components/RoundCard";
+import doc from "../static/doctor.avif";
+import Border from "../components/Border";
+import Icons from "../components/Icons";
 
 const Home = ({ user }) => {
   const logout = () => {
@@ -26,8 +25,7 @@ const Home = ({ user }) => {
       <h1
         style={{
           marginTop: "5rem",
-          fontFamily: "sans-serif",
-          fontFamily: "Verdana",
+          fontFamily: "'Pacifico', cursive",
           fontSize: "70px",
           color: "#4398bf",
         }}
@@ -60,12 +58,33 @@ const Home = ({ user }) => {
       <Border />
 
       <div>
-        <RotatingIcons />
+        <Icons />
         <Border />
-        <div style={{ margin: "5rem auto" }}>
-          <RoundCard />
-          <RoundCard />
-          <RoundCard />
+        <div
+          style={{
+            margin: "8rem auto",
+            display: "flex",
+            justifyContent: "space-around",
+            width: "75%",
+          }}
+        >
+          <RoundCard
+            title="Self Diagnosis"
+            class="fa-solid fa-viruses"
+            des="Self Diagnosis at your fingertips."
+          />
+
+          <RoundCard
+            title="Doctor Recommendation"
+            class="fa-solid fa-stethoscope"
+            des="Helps you to easily predict your disease."
+          />
+
+          <RoundCard
+            title="Easy To Use"
+            class="fa-solid fa-user"
+            des="User Friendly and easy to use."
+          />
         </div>
         <button
           onClick={logout}

@@ -41,52 +41,6 @@ async function verifyGoogleToken(token) {
 
 let items = [];
 
-//Reading the database
-
-// const itemList = function handleParam() {
-//   // open database in memory
-//   let db = new sqlite3.Database(
-//     "C:/sqlite/db/doc_db.db",
-//     sqlite3.OPEN_READWRITE,
-//     (err) => {
-//       if (err) {
-//         return console.error(err.message);
-//       }
-//       console.log("Connected to the doctors SQlite database.");
-//     }
-//   );
-
-//   const items = [];
-
-//   db.serialize(() => {
-//     db.each(
-//       `SELECT ID as id,
-//         Doc_Name as name,
-//         Area as area
-//           FROM BookCopy
-//           WHERE id=1 `,
-//       (err, row) => {
-//         if (err) {
-//           console.error(err.message);
-//         }
-//         // console.log(row);
-//         // res.send(row);
-//         items.push(row);
-//         console.log(items);
-//       }
-//     );
-
-//   });
-
-//   // close the database connection
-//   db.close((err) => {
-//     if (err) {
-//       return console.error(err.message);
-//     }
-//     console.log("Close the database connection.");
-//   });
-// };
-
 let db = new sqlite3.Database(
   "C:/sqlite/db/doc_db.db",
   sqlite3.OPEN_READWRITE,
@@ -98,11 +52,11 @@ let db = new sqlite3.Database(
   }
 );
 
-app.get("/", (req, res) => {
-  const area = req.query.area;
+app.get("/doc", (req, res) => {
+  const area = req.query.area.toLowerCase();
   console.log(area);
   db.all(
-    `SELECT ID as id, Doc_Name as name, Area as area FROM BookCopy where area="${area}"`,
+    `SELECT ID as id, Doc_Name as name, Area as area, Speciality as spec FROM BookCopy where LOWER(area)="${area}"`,
     [],
     (err, row) => {
       if (err) {
@@ -112,34 +66,22 @@ app.get("/", (req, res) => {
       res.status(200).json(row);
     }
   );
+});
 
-  // db.serialize(() => {
-  //   db.each(
-  //     `SELECT ID as id,
-  //       Doc_Name as name,
-  //       Area as area
-  //         FROM BookCopy
-  //         WHERE id=1 `,
-  //     (err, row) => {
-  //       if (err) {
-  //         console.error(err.message);
-  //       }
-  //       // console.log(row);
-  //       // res.send(row);
-  //       items.push(row);
-  //       console.log(items);
-  //     }
-  //   );
-  // });
-
-  // close the database connection
-  // db.close((err) => {
-  //   if (err) {
-  //     return console.error(err.message);
-  //   }
-  //   // items = [];
-  //   console.log("Close the database connection.");
-  // });
+app.get("/", (req, res) => {
+  const area = req.query.area;
+  console.log(area);
+  db.all(
+    `SELECT ID as id, Doc_Name as name, Area as area, Speciality as spec FROM BookCopy`,
+    [],
+    (err, row) => {
+      if (err) {
+        res.status(400).json({ error: err.message });
+        return;
+      }
+      res.status(200).json(row);
+    }
+  );
 });
 
 // app.get('/test', (req,res)=>{
