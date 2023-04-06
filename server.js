@@ -7,6 +7,7 @@ const request = require("request");
 require("dotenv").config();
 const { OAuth2Client } = require("google-auth-library");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 
 app.use(
   cors({
@@ -16,6 +17,20 @@ app.use(
 );
 
 app.use(express.json());
+
+mongoose.connect(
+  "mongodb+srv://admin-uwais:Test123@cluster0.2ieu9.mongodb.net/BeHealthy",
+  {
+    useNewUrlParser: true,
+  }
+);
+
+const usersSchema = {
+  name: String,
+  email: String,
+};
+
+const User = mongoose.model("User", usersSchema);
 
 // Our database
 let DB = [];
@@ -82,13 +97,13 @@ app.get("/", (req, res) => {
       res.status(200).json(row);
     }
   );
+  // db.close((err) => {
+  //   if (err) {
+  //     return console.error(err.message);
+  //   }
+  //   console.log("Close the doc database connection.");
+  // });
 });
-
-// app.get('/test', (req,res)=>{
-//   res.write("Hello");
-//   const a=setTimeout(()=> {
-//     res.redirect('http://localhost:3000/')},3000);
-// })
 
 app.get("/home", function (req, res) {
   request("http://127.0.0.1:8080/flask", function (error, response, body) {
@@ -117,16 +132,20 @@ app.post("/signup", async (req, res) => {
 
       DB.push(profile);
 
-      console.log(DB);
+      const user = new User({
+        name: profile.name,
+        email: profile.email,
+      });
+      user.save();
 
       res.status(201).json({
         message: "Signup was successful",
         user: {
-          firstName: profile?.given_name,
-          lastName: profile?.family_name,
-          picture: profile?.picture,
-          email: profile?.email,
-          token: jwt.sign({ email: profile?.email }, "myScret", {
+          firstName: profile.given_name,
+          lastName: profile.family_name,
+          picture: profile.picture,
+          email: profile.email,
+          token: jwt.sign({ email: profile.email }, "myScret", {
             expiresIn: "1d",
           }),
         },
@@ -153,26 +172,30 @@ app.post("/login", async (req, res) => {
 
       const profile = verificationResponse?.payload;
 
-      const existsInDB = DB.find((person) => person?.email === profile?.email);
-
-      if (!existsInDB) {
-        return res.status(400).json({
-          message: "You are not registered. Please sign up",
-        });
+      async function findUser() {
+        const foundUser = await User.findOne({ email: profile.email });
+        console.log(foundUser);
+        if (foundUser) {
+          res.status(201).json({
+            message: "Login was successful",
+            user: {
+              firstName: profile?.given_name,
+              lastName: profile?.family_name,
+              picture: profile?.picture,
+              email: profile?.email,
+              token: jwt.sign({ email: profile?.email }, "myScret", {
+                expiresIn: "1d",
+              }),
+            },
+          });
+        } else {
+          return res.status(400).json({
+            message: "You are not registered. Please sign up",
+          });
+        }
       }
 
-      res.status(201).json({
-        message: "Login was successful",
-        user: {
-          firstName: profile?.given_name,
-          lastName: profile?.family_name,
-          picture: profile?.picture,
-          email: profile?.email,
-          token: jwt.sign({ email: profile?.email }, "myScret", {
-            expiresIn: "1d",
-          }),
-        },
-      });
+      findUser();
     }
   } catch (error) {
     res.status(500).json({

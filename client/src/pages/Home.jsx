@@ -4,6 +4,8 @@ import RoundCard from "../components/RoundCard";
 import doc from "../static/doctor.avif";
 import Border from "../components/Border";
 import Icons from "../components/Icons";
+import Carousel from "../components/Carousel";
+import rainbow from "../static/rainbow.png";
 
 const Home = ({ user }) => {
   const logout = () => {
@@ -22,27 +24,82 @@ const Home = ({ user }) => {
   return (
     <div style={{ textAlign: "center", margin: "0rem" }}>
       <Navbar />
-      <h1
-        style={{
-          marginTop: "5rem",
-          fontFamily: "'Pacifico', cursive",
-          fontSize: "70px",
-          color: "#4398bf",
-        }}
-      >
-        Good {greeting} {user.firstName}
-      </h1>
+      <div style={{ marginTop: "15rem", marginBottom: "5rem" }}>
+        {/* <img
+          src={rainbow}
+          alt="Rainbow-Img"
+          style={{
+            width: "1000px",
+            height: "400px",
+            opacity: "70%",
+            position: "absolute",
+            zIndex: "-1",
+            left: "29rem",
+            top: "8rem",
+          }}
+        /> */}
+        <img
+          className="animate__animated animate__bounceInLeft"
+          src="https://www.freepnglogos.com/uploads/cloud-clipart/cloud-clipart-u2013-u2013-clip-33.jpg"
+          alt="Cloud-Img"
+          style={{
+            widtth: "150px",
+            height: "150px",
+            position: "absolute",
+            zIndex: "-2",
+            left: "23rem",
+            top: "14rem",
+          }}
+        />
+        <img
+          className="animate__animated animate__bounceInDown"
+          src="https://www.freepnglogos.com/uploads/cloud-clipart/cloud-clipart-u2013-u2013-clip-33.jpg"
+          alt="Cloud-Img"
+          style={{
+            widtth: "150px",
+            height: "150px",
+            position: "absolute",
+            zIndex: "-2",
+            right: "53rem",
+            top: "7rem",
+          }}
+        />
+        <img
+          className="animate__animated animate__bounceInRight"
+          src="https://www.freepnglogos.com/uploads/cloud-clipart/cloud-clipart-u2013-u2013-clip-33.jpg"
+          alt="Cloud-Img"
+          style={{
+            widtth: "150px",
+            height: "150px",
+            position: "absolute",
+            zIndex: "-2",
+            right: "23rem",
+            top: "14rem",
+          }}
+        />
+        <h1
+          className="animate__animated animate__bounce"
+          style={{
+            marginTop: "5rem",
+            fontFamily: "'Pacifico', cursive",
+            fontSize: "70px",
+            color: "#4398bf",
+          }}
+        >
+          Good {greeting} {user.firstName}
+        </h1>
 
-      <p
-        style={{
-          marginTop: "2rem",
-          fontFamily: "sans-serif",
-          fontFamily: "Verdana",
-          fontSize: "25px",
-        }}
-      >
-        Stay Fit, Stay Healthy!
-      </p>
+        <p
+          style={{
+            marginTop: "2rem",
+            fontFamily: "sans-serif",
+            fontFamily: "Verdana",
+            fontSize: "25px",
+          }}
+        >
+          Stay Fit, Stay Healthy!
+        </p>
+      </div>
 
       <img
         style={{
@@ -86,6 +143,11 @@ const Home = ({ user }) => {
             des="User Friendly and easy to use."
           />
         </div>
+
+        {/* Carousel */}
+
+        <Carousel />
+
         <button
           onClick={logout}
           style={{
