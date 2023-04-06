@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Table from "react-bootstrap/Table";
+import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function DataComp() {
@@ -117,6 +118,15 @@ function DataComp() {
           </tbody>
         </Table>
       </div>
+
+      <Alert
+        key="secondary"
+        variant="secondary"
+        style={{ width: "70%", margin: "5rem auto", textAlign: "center" }}
+      >
+        Are you a medical professional. Can't find your name here?{" "}
+        <Alert.Link href="/docrecm/add">Click to add</Alert.Link>
+      </Alert>
     </div>
   );
 }

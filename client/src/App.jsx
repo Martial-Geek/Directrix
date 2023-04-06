@@ -9,6 +9,7 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import DocAdd from "./pages/DocAdd";
 
 function App() {
   const [user, setUser] = useState({});
@@ -42,6 +43,7 @@ function App() {
         />
         <Route path="/disease" element={<Dis />} />
         <Route path="/docrecm" element={<DataComp />} />
+        <Route path="/docrecm/add" element={<DocAdd />} />
         <Route path="/test" element={<Test />} />
       </Routes>
     </Router>

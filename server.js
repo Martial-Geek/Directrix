@@ -9,6 +9,9 @@ const { OAuth2Client } = require("google-auth-library");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
+const mongouid = process.env.MONGO_DB_USER_ID;
+const mongopass = process.env.MONGO_DB_PASS;
+
 app.use(
   cors({
     origin: ["http://localhost:3000"],
@@ -19,7 +22,7 @@ app.use(
 app.use(express.json());
 
 mongoose.connect(
-  "mongodb+srv://admin-uwais:Test123@cluster0.2ieu9.mongodb.net/BeHealthy",
+  `mongodb+srv://${mongouid}:${mongopass}@cluster0.2ieu9.mongodb.net/BeHealthy`,
   {
     useNewUrlParser: true,
   }
